@@ -74,10 +74,24 @@ var updateCourseTitle = function({id, title}) {
     return coursesData.filter(course => course.id === id) [0];
 }
 
+var createCourse = function({id, title, author, description, topic, url}){
+    const newCourse = {
+        id: id,
+        title: title,
+        author: author,
+        description:description,
+        topic: topic,
+        url : url
+    };
+    coursesData.push(newCourse);
+    return coursesData;
+}
+
 var root = {
     course: getCourse,
     courses: getCourses,
-    updateCourseTitle: updateCourseTitle
+    updateCourseTitle: updateCourseTitle,
+    createCourse: createCourse
 };
 
 var app = express();
